@@ -1,0 +1,41 @@
+{% extends "sharedMaster.html" %}
+
+{% block pageSpecificContent %}
+		<div class="editProjectBox">		      
+        <h3>Photos Galery</h3>
+        {% for photo in photoCollection %}
+        	<div>
+        	<p>{{photo.title}}</p>
+        	<div class="clearAll"></div>
+        	<p>{{photo.caption|safe}}</p>
+        	<div class="clearAll"></div>
+        	<p><input type="text" value="{{photo.key.urlsafe}}"/></p>
+        	<div class="clearAll"></div>
+        	<img src="/Photo?key={{photo.key.urlsafe}}" height="170px" width="250px"/>
+        	</div>
+        	<div class="clearAll"></div>
+        {% endfor %}
+        <h3>Add PhotoGallery to Collection</h3> 
+        <form method="post" action="/MapPhotoToWork?name={{work.key.id}}" >
+            <div class="clearAll"></div>
+            <p>Image Key :
+            	<input type="text" name="photoKey" />
+            </p>
+            <div class="clearAll"></div>            
+            <input type="submit" value="Add Photo To Project" />
+        </form>
+         <h3>Photos Present</h3>
+        {% for photo in photoList %}
+        	<div>
+        	<p>{{photo.title}}</p>
+        	<div class="clearAll"></div>
+        	<p>{{photo.caption|safe}}</p>
+        	<div class="clearAll"></div>
+        	<p>{{photo.key.urlsafe}}</p>
+        	<div class="clearAll"></div>
+        	<img src="/Photo?key={{photo.key.urlsafe}}" height="170px" width="250px"/>
+        	</div>
+        	<div class="clearAll"></div>
+        {% endfor %}
+        </div>
+{% endblock %}

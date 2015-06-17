@@ -1,0 +1,47 @@
+{% extends "sharedMaster.html" %}
+
+{% block pageSpecificContent %}
+
+<p class="homeProfileImagebox"><img alt="{{work.title}}" title="{{work.title}}" src="/WorkIcon?key={{work.key.id}}"/></p>
+
+<div class="topProjectBox">
+			<div class="workTitle"><h2>{{work.title}}</h2></div>
+			<div class="clearAll"></div>
+			<div class="workDescription">{{work.description|safe}}</div>		
+		</div>
+		
+		
+<div class="middleWorkBox">
+      	<div class="photoGalleryBox">
+      	<div id="wrapper">
+			<div id="scroller">
+				<ul>
+      	{% for photo in photoList %}
+        	<li>        	
+        	<img title="{{photo.title}}" caption="{{photo.caption}}" urlsafe="{{photo.key.urlsafe}}" src="/Thumbnail?key={{photo.key.urlsafe}}" />
+        	<div class="popupPicture" > + </div>
+        	</li>
+        {% endfor %}
+        		</ul>
+        	</div>
+      	</div>
+      	<div class="clearAll"></div>
+      	</div>
+      	<div class="clearAll"></div>
+      	<div class="projectAttributesBox">
+      	{% for attr in attrList %}        	
+        	<div>
+        	<h4>{{attr.name}}</h4>
+        	<p>{{attr.htmlDescription|safe}}</p>
+        	<div class="clearAll"></div>
+        	</div>        	
+        {% endfor %}
+      	</div>
+      	</div>
+
+{% endblock %}
+
+{% block specificScriptIncludeBottom %}
+<script type="_include/js/javascript" src="iscroll-lite.js"></script>
+<script type="_include/js/javascript" src="workPage.js"></script>
+{% endblock %}

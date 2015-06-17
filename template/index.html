@@ -1,0 +1,263 @@
+{% extends "sharedMaster.html" %}
+
+{% block specificStyleInclude %}
+
+{% endblock %}
+
+{% block specificScriptIncludeTop %}
+
+{% endblock %}
+
+{% block pageSpecificContent %}
+
+<!-- This section is for Splash Screen -->
+<div class="ole">
+<section id="jSplash">
+	<div id="circle"></div>
+</section>
+</div>
+<!-- End of Splash Screen -->
+
+<!-- Homepage Slider -->
+<div id="home-slider">	
+    <div class="overlay"></div>
+
+    <div class="slider-text">
+    	<div id="slidecaption">
+    	
+    	</div>
+    </div>   
+	
+	<div class="control-nav">
+        <a id="prevslide" class="load-item"><i class="font-icon-arrow-simple-left"></i></a>
+        <a id="nextslide" class="load-item"><i class="font-icon-arrow-simple-right"></i></a>
+        <ul id="slide-list"></ul>
+        
+        <a id="nextsection" href="#work"><i class="font-icon-arrow-simple-down"></i></a>
+    </div>
+</div> 
+<!-- End Homepage Slider -->
+
+
+
+<!-- Our Work Section -->
+<div id="work" class="page">
+	<div class="container">
+    	<!-- Title Page -->
+        <div class="row">
+            <div class="span12">
+                <div class="title-page">
+                    <h2 class="title"></h2>
+                    <h3 class="title-description"></h3>
+                </div>
+            </div>
+        </div>
+        <!-- End Title Page -->
+        
+        <!-- Portfolio Projects -->
+        <div class="row">
+        	<div class="span3">
+            	<!-- Filter -->
+                <nav id="options" class="work-nav">
+                    <ul id="filters" class="option-set" data-option-key="filter">
+                    	<li class="type-work">Select to Filter</li>
+                        <li><a href="#filter" data-option-value="*" class="selected">All</a></li>
+                        <li><a href="#filter" data-option-value=".workexperience" >Work Experience</a></li>
+                        <li><a href="#filter" data-option-value=".personalprojects">Projects Done</a></li>                        
+                        <li><a href="#filter" data-option-value=".awards">Awards & Honours</a></li>                                               
+                        <!-- <li><a href="#filter" data-option-value=".skills">My Skills</a></li>  --> 
+                                              
+                    </ul>
+                </nav>
+                <!-- End Filter -->
+            </div>
+            
+            <div class="span9">
+            	<div class="row">
+                	<section id="projects">
+                    	<ul id="thumbs">
+                        	{% for work in works %}
+                        	<li class="item-thumbs span3 {{work.category}}">                            	
+                            	<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="{{work.title}}" href="/WorkBigImage?key={{work.key.id}}.jpg" link="/Work?name={{work.key.id}}">
+                                	<span class="overlay-img"></span>
+                                    <span class="overlay-img-thumb font-icon-plus"></span>
+                                </a>                                
+                                <img src="/WorkIcon?key={{work.key.id}}" alt="{{work.description|safe}}">
+                            </li>
+                        	{% endfor %}
+                        </ul>
+                    </section>
+                    
+            	</div>
+            </div>
+        </div>
+        <!-- End Portfolio Projects -->
+    </div>
+</div>
+<!-- End Our Work Section -->
+
+<!-- About Section -->
+<div id="about" class="page-alternate">
+<div class="container">
+    <!-- Title Page -->
+    <div class="row">
+        <div class="span12">
+            <div class="title-page">
+                <h2 class="title">About Me</h2>                
+            </div>
+        </div>
+    </div>
+    <!-- End Title Page -->
+    
+    <!-- People -->
+    <div class="row">
+    	
+        <!-- Start Profile -->
+    	<div class="span4 profile">
+        	<div class="image-wrap">                
+                <img src="tempasset/aboutme/profile.JPG" alt="Subhasis Dutta">
+            </div>
+            <h3 class="profile-name">Subhasis Dutta</h3>
+            <p class="profile-description">Hi, I am a Software Engineer currently working at GE Healthcare, with an experience of more than 4 years. 
+            I work on developing web applications using wide range of technologies. I have developed web application that can server more
+             than million request per month to prototype application using new open source technologies. Before joining the IT
+             industry, I had co-founded a start-up <a href="http://xsrobotics.com/products/" target="_blank">XSROBOTICS</a> with an objective to develop products and provide services for the education
+              and hobby robotics market. </p>
+            	
+            
+        </div>
+        <!-- End Profile -->
+        
+        <!-- Start Profile 
+    	<div class="span4 profile">
+        	<div class="image-wrap">
+                <div class="hover-wrap">
+                    <span class="overlay-img"></span>
+                    <span class="overlay-text-thumb">Creative Director</span>
+                </div>
+                <img src="_include/img/profile/profile-02.jpg" alt="Jane Helf">
+            </div>
+            <h3 class="profile-name">Jane Helf</h3>
+            <p class="profile-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat <a href="#">hendrerit dictum</a>. 
+            Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper metus, id hendrerit metus diam vitae est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            	
+            <div class="social">
+            	<ul class="social-icons">
+                	<li><a href="#"><i class="font-icon-social-twitter"></i></a></li>
+                    <li><a href="#"><i class="font-icon-social-email"></i></a></li>
+                </ul>
+            </div>
+        </div>-->
+        <!-- End Profile -->
+        
+        <!-- Start Profile 
+    	<div class="span4 profile">
+        	<div class="image-wrap">
+                <div class="hover-wrap">
+                    <span class="overlay-img"></span>
+                    <span class="overlay-text-thumb">Lead Designer</span>
+                </div>
+                <img src="_include/img/profile/profile-03.jpg" alt="Joshua Insanus">
+            </div>
+            <h3 class="profile-name">Joshua Insanus</h3>
+            <p class="profile-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat <a href="#">hendrerit dictum</a>. 
+            Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper metus, id hendrerit metus diam vitae est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            	
+            <div class="social">
+            	<ul class="social-icons">
+                	<li><a href="#"><i class="font-icon-social-twitter"></i></a></li>
+                    <li><a href="#"><i class="font-icon-social-linkedin"></i></a></li>
+                    <li><a href="#"><i class="font-icon-social-google-plus"></i></a></li>
+                    <li><a href="#"><i class="font-icon-social-vimeo"></i></a></li>
+                </ul>
+            </div>
+        </div>-->
+        <!-- End Profile -->
+        
+    </div>
+    <!-- End People -->
+</div>
+</div>
+<!-- End About Section -->
+
+
+<!-- Contact Section -->
+<div id="contact" class="page">
+<div class="container">
+    <!-- Title Page -->
+    <div class="row">
+        <div class="span12">
+            <div class="title-page">
+                <h2 class="title">Get in Touch</h2>
+                <h3 class="title-description"></h3>
+            </div>
+        </div>
+    </div>
+    <!-- End Title Page -->
+    
+    <!-- Contact Form -->
+    <div class="row">
+    	<div class="span9">
+        
+        	<form id="contact-form" class="contact-form" action="#">
+            	<p class="contact-name">
+            		<input id="contact_name" type="text" placeholder="Full Name" value="" name="name" />
+                </p>
+                <p class="contact-email">
+                	<input id="contact_email" type="text" placeholder="Email Address" value="" name="email" />
+                </p>
+                <p class="contact-message">
+                	<textarea id="contact_message" placeholder="Your Message" name="message" rows="15" cols="40"></textarea>
+                </p>
+                <p class="contact-submit">
+                	<a id="contact-submit" class="submit" href="#">Post Message</a>
+                </p>
+                
+                <div id="response">
+                
+                </div>
+            </form>
+         
+        </div>
+        
+        <div class="span3">
+        	<div class="contact-details">
+        		<h3>Contact Details</h3>
+                <ul>
+                    <li>Subhasis Dutta</li>
+                    <li><a href="mailto:subhasisdutta300887@gmail.com">subhasisdutta300887@gmail.com</a></li>
+                    <li>(+91) 9686433777</li>
+                    <li>
+                        Bangalore
+                        <br>
+                        India
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End Contact Form -->
+</div>
+</div>
+<!-- End Contact Section -->
+{% endblock %}
+
+{% block specificScriptIncludeBottom %}
+<script type="text/javascript">
+/*$( document ).ready(function() {
+	$( "#firstClick").trigger( "click" );
+});*/
+</script>
+<script type="text/javascript">
+	var homePageSliderData = [{image : 'tempasset/homeslide/alltiles.jpg', 
+							   title : '<div class="slide-content"></div>', 
+							   thumb : '', 
+							   url : ''},
+                              {image : 'tempasset/homeslide/xspowerrobots.jpg', 
+							   title : '<div class="slide-content"></div>', 
+							   thumb : '', 
+							   url : ''}                                
+                      ];
+</script>
+{% endblock %}
+

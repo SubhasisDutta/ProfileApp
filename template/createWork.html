@@ -1,0 +1,37 @@
+{% extends "sharedMaster.html" %}
+
+{% block pageSpecificContent %}
+ <h3>Create a New Work</h3>
+        <form method="post" enctype="multipart/form-data">
+        	<p>Handle :
+            	<input type="text" name="handle"/>
+            </p>
+            <p>Category :
+            	<select name="category">
+				  <option value="workexperience">Work Experience</option>
+				  <option value="personalprojects">Personal Projects</option>
+				  <option value="publication">Publication</option>
+				  <option value="awards">Awards & Honours</option>
+				  <option value="undergradprojects">Undergraduation Projects</option>
+				  <option value="skills">My Skills</option>
+				</select>
+            </p>
+            
+            <p>Title :
+            	<input type="text" name="title" />
+            </p>
+            <p>Order :
+            	<input type="text" name="order" />
+            </p>
+            <p>Description:
+            	<textarea name="description" rows="6" cols="120"></textarea>
+                </p>
+                <p>Icon Image:
+            	<input type="file" name="iconImage"/>
+                </p>
+                <p>Popup Large Image:
+            	<input type="file" name="largeImage"/>
+                </p>
+                <input type="submit" value="Create Project" />
+        </form>
+{% endblock %}

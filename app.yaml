@@ -1,0 +1,33 @@
+application: subhasis-dutta
+version: 2
+runtime: python27
+api_version: 1
+threadsafe: true
+
+default_expiration: "30d"
+
+handlers:
+- url: /favicon\.ico
+  static_files: static/icons/favicon.ico
+  upload: static/icons/favicon\.ico
+
+- url: /_include/  
+  static_dir: static/_include 
+  
+- url: /tempasset/  
+  static_dir: static/tempasset
+ 
+- url: /stylesheets/
+  mime_type: text/css
+  static_dir: static/stylesheets
+  
+- url: /.*
+  script: main.application
+  
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
+- name: PIL
+  version: "1.1.7"
