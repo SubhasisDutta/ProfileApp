@@ -10,6 +10,8 @@ class WorkIcon(webapp2.RequestHandler):
         work_key=ndb.Key('Work',self.request.get("key"))
         work=work_key.get()
         self.response.headers['Content-Type'] = 'image/jpeg'
+        self.response.headers['Cache-Control'] = 'max-age=13600'
+        self.response.headers['Expires'] = 'Thu, 03 Dec 2099 16:00:00 GMT'
         self.response.out.write(work.iconImage)
 
 class WorkBigImage(webapp2.RequestHandler):
@@ -18,6 +20,7 @@ class WorkBigImage(webapp2.RequestHandler):
         work_key=ndb.Key('Work',actualKey)
         work=work_key.get()
         self.response.headers['Content-Type'] = 'image/jpeg'
+        self.response.headers['Cache-Control'] = 'max-age=13600'
         self.response.out.write(work.bigImage)
         
 class WorkThumbnailPhoto(webapp2.RequestHandler):
@@ -25,6 +28,7 @@ class WorkThumbnailPhoto(webapp2.RequestHandler):
         workPhoto_key=ndb.Key(urlsafe=self.request.get("key"))
         workPhoto=workPhoto_key.get()
         self.response.headers['Content-Type'] = 'image/jpeg'
+        self.response.headers['Cache-Control'] = 'max-age=13600'
         self.response.out.write(workPhoto.thumbnail)
 
 class WorkPhoto(webapp2.RequestHandler):
@@ -32,6 +36,7 @@ class WorkPhoto(webapp2.RequestHandler):
         workPhoto_key=ndb.Key(urlsafe=self.request.get("key"))
         workPhoto=workPhoto_key.get()
         self.response.headers['Content-Type'] = 'image/jpeg'
+        self.response.headers['Cache-Control'] = 'max-age=13600'
         self.response.out.write(workPhoto.image)
         
 class WorkPage(webapp2.RequestHandler):

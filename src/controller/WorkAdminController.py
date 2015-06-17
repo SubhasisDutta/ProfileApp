@@ -108,7 +108,8 @@ class WorkAdminEdit(webapp2.RequestHandler):
                     work.title=title
                     work.description=description   
                     work.order=int(self.request.get("order"))
-                    work.publish=bool(self.request.get("publish"))                 
+                    work.publish=bool(self.request.get("publish"))   
+                    work.category=self.request.get("category")
                     work.put()
                     self.response.headers["Content-Type"]="text/html"
                     self.response.out.write("""
