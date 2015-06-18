@@ -5,3 +5,6 @@ Notebook
 
 A profile Web Application based on Google App Engine developed using Python.
 
+
+To Deploy
+appcfg.py update NoteBook/
