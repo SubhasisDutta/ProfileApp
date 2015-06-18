@@ -4,6 +4,7 @@ from src.controller.ContactController import ContactModule
 from src.controller.SliderController import SliderWS
 from src.controller.WorkAdminController import WorkAdminCreate,WorkAdminEdit,AddPhotoTOCollection,MapPhotoToWork,AddWorkAttribute
 from src.controller.WorkController import WorkIcon,WorkBigImage,WorkThumbnailPhoto,WorkPhoto,WorkPage
+from src.util import SendConfirmationEmailHandler#,SetAnnouncementHandler
 
 application = webapp2.WSGIApplication([    
     ('/CreateWork',WorkAdminCreate),
@@ -18,6 +19,8 @@ application = webapp2.WSGIApplication([
     ('/Thumbnail',WorkThumbnailPhoto),
     ('/MapPhotoToWork',MapPhotoToWork),
     ('/AddAttribute',AddWorkAttribute),
+#     ('/crons/set_announcement', SetAnnouncementHandler),
+    ('/tasks/send_confirmation_email', SendConfirmationEmailHandler),
     ('/', HomePage)
 ], debug=True)
 

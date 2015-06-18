@@ -1,5 +1,5 @@
 application: subhasisnotebook
-version: 2
+version: 3
 runtime: python27
 api_version: 1
 threadsafe: true
@@ -21,6 +21,38 @@ handlers:
   mime_type: text/css
   static_dir: static/stylesheets
   
+- url: /js
+  static_dir: static/script/js
+
+- url: /img
+  static_dir: static/images
+
+- url: /css
+  static_dir: static/stylesheets
+
+- url: /fonts
+  static_dir: static/fonts
+
+- url: /partials
+  static_dir: static/partials
+  
+- url: /
+  static_files: template/index.html
+  upload: template/index\.html
+  secure: always
+  
+- url: /tasks/send_confirmation_email
+  script: main.app
+  login: admin
+
+- url: /crons/set_announcement
+  script: main.app
+  login: admin
+
+- url: /api/.*
+  script: conference.api
+  secure: always  
+  
 - url: /.*
   script: main.application
   
@@ -31,3 +63,8 @@ libraries:
   version: latest
 - name: PIL
   version: "1.1.7"
+- name: endpoints
+  version: latest
+# pycrypto library used for OAuth2 (req'd for authenticated APIs)
+- name: pycrypto
+  version: latest
