@@ -129,7 +129,7 @@
 
 .fancybox-close:hover {
 	opacity: 1;
-	background-color:#DE5E60;
+	background-color:#007fff;
 }
 
 .fancybox-nav {
@@ -195,7 +195,7 @@
 
 .fancybox-nav:hover span {
 	opacity: 1;
-	background-color:#DE5E60;
+	background-color:#007fff;
 }
 
 .fancybox-tmp {
