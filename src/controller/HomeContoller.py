@@ -8,9 +8,9 @@ class HomePage(webapp2.RequestHandler):
         self.response.headers["Content-Type"]="text/html"
         publishedWork=Work.gql("WHERE publish=True ORDER BY order ")
         template_values = {
-                           'pageTitle':"Subhasis Dutta - Profile",
+                           'pageTitle':"Subhasis Dutta ",
                             'works':publishedWork
                            }
-        path=os.path.join(os.path.dirname(__file__),'../../template/index.html')
+        path=os.path.join(os.path.dirname(__file__),'../../template/index_old.html')
         page=template.render(path,template_values) 
         self.response.out.write(page)

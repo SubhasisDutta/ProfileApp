@@ -6,18 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Conference Central</title>
+    <title>Subhasis Notebook</title>
 
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/bootstrap-cosmo.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/offcanvas.css">
     <link rel="shortcut icon" href="/img/favicon.ico">
-    <meta property="og:title" content="Conference Central">
+    <meta property="og:title" content="Subhasis Notebook">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Conference Central web app that lets you manage conferences.">
-    <meta property="og:image" content="/img/CloudPlatform_logo.png">
-    <meta property="og:site_name" content="An web app powered by Google App Engine">
+    <meta property="og:description" content="Subhasis Notebook is web app that documents some of the new technologies to work in.">    
+    <meta property="og:site_name" content="An web app designed by Subhasis Dutta, powered by Google App Engine.">
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js"></script>
@@ -27,10 +26,11 @@
          * so that Google JavaScript library ready in the angular modules.
          */
         function init() {
-            gapi.client.load('conference', 'v1', null, '//' + window.location.host + '/_ah/api');
+            /*gapi.client.load('conference', 'v1', null, '//' + window.location.host + '/_ah/api');
             gapi.client.load('oauth2', 'v2', function () {
-                angular.bootstrap(document, ['conferenceApp']);
-            });
+                
+            });*/
+        	angular.bootstrap(document, ['conferenceApp']);
         };
     </script>
     <script src="//apis.google.com/js/client:plusone.js?onload=init"></script>
@@ -48,7 +48,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Conference Central</a>
+            <a class="navbar-brand" href="/">Subhasis Notebook</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">

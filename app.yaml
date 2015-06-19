@@ -1,5 +1,5 @@
-application: subhasisnotebook
-version: 3
+application: subhasis-dutta
+version: 2
 runtime: python27
 api_version: 1
 threadsafe: true
@@ -36,7 +36,7 @@ handlers:
 - url: /partials
   static_dir: static/partials
   
-- url: /
+- url: /note
   static_files: template/index.html
   upload: template/index\.html
   secure: always
