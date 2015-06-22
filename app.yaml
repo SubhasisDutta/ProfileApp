@@ -39,7 +39,7 @@ handlers:
 - url: /note
   static_files: template/index.html
   upload: template/index\.html
-  secure: always
+
   
 - url: /tasks/send_confirmation_email
   script: main.app
@@ -51,7 +51,7 @@ handlers:
 
 - url: /api/.*
   script: conference.api
-  secure: always  
+
   
 - url: /.*
   script: main.application
