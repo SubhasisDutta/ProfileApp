@@ -1,0 +1,1048 @@
+<div ><!-- ng-controller="NoteSearchCtrl" ng-init="init()" -->    
+    <div class="row">
+        <div class="col-lg-8">
+            
+            <ul class="breadcrumb columnTop">
+  				<li><a href="#/category/category1">Category 1</a></li>
+  				<li><a href="#/category/subcategory2">SubCategory 2</a></li>  				
+  				<li class="active">Data</li>
+			</ul>
+            
+            <h1 class="columnHeader">Integrate with your local directory - Note Heading</h1>
+            
+            <div id="noteDetailsBody">		      
+			      
+			      <div class=WordSection1>
+
+					<p class=MsoNormal>Contextualizing
+					the Metro Menu Style</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>The call&nbsp;<b>METRO</b>&nbsp;style
+					is the new style interface of Microsoft applications, can be seen, for example,
+					in Windows Phone 7 and Windows 8. The main menu of these applications has a
+					simple format, based on the tiles, usually two different sizes.</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span >An example of this menu can be
+					seen in the following figure.</span></p>
+					
+					<p class=MsoNormal ><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'><img
+					width=571 height=314 id="Picture 3"
+					src="/img/business2.jpg"
+					alt="Initial Menu of Windows 8 in Metro style"></span><span style='font-size:
+					13.5pt;font-family:"Verdana","sans-serif";color:black'><br>
+					<br>
+					</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><b><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>Figure 1</span></b><span
+					style='font-size:13.5pt;font-family:"Verdana","sans-serif";color:black'>:
+					Initial Menu of Windows 8 in Metro style</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>Despite being more used in
+					mobile and desktop applications, I present here a solution for the development
+					of a web interface similar to the web page using only the&nbsp;<a
+					href="http://mrbool.com/channel/front-end-web" target="_blank">Web Standards</a>&nbsp;(HTML,&nbsp;<a
+					href="http://mrbool.com/course/cascading-style-sheets-csscss3/365"
+					target="_blank" title="Free CSS/CSS3 Online Course - MrBool">CSS</a>,
+					Javascript).</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>In this article, however, will
+					not be developed more complex features like scrolling or moving tiles, will
+					present a general framework that can be customized by the reader.</span></p>
+					
+					<p class=MsoNormal style='margin-top:30.0pt;margin-right:0in;margin-bottom:
+					0in;margin-left:0in;margin-bottom:.0001pt;line-height:37.5pt'><span
+					style='font-size:21.5pt;font-family:"Arial","sans-serif";color:#5B5B5B'>Get to
+					work</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>To develop this menu, divide
+					the lines in the central region in which we insert the tiles.</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>The tiles are of two types:
+					normal and wide (as seen in the image above) and the colors will be given later
+					with the addition of CSS classes.</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>To begin, let's create the
+					title and the lines that will structure the menu, as shown in Listing 1.</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><b><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>Listing 1</span></b><span
+					style='font-size:13.5pt;font-family:"Verdana","sans-serif";color:black'>:
+					Structure of the Home page</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>&lt;html&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>&lt;head&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    &lt;link rel=&quot;stylesheet&quot;
+					href=&quot;estilo.css&quot;/&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    &lt;meta charset=&quot;UTF-8&quot;/&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    &lt;script type=&quot;text/javascript&quot;
+					src=&quot;&lt;http://code.jquery.com/jquery-1.7.2.min.js&gt;&quot;&gt;&lt;/script&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    &lt;script type=&quot;text/javascript&quot;
+					src=&quot;script.js&quot;&gt;&lt;/script&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>&lt;/head&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>&lt;body&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    &lt;h1&gt;Início&lt;/h1&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    &lt;div class=&quot;pagina&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;linha&quot;&gt;          </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;linha&quot;&gt;          </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;       </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;linha&quot;&gt;          </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>&lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>&lt;/body&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>&lt;/html&gt;</span></p>
+					
+					<p class=MsoNormal style='line-height:16.0pt;background:#F7F7F7'><span
+					style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>As can be seen, will be used
+					two additional files (beyond&nbsp;<a
+					href="http://mrbool.com/course/course-html-5-an-introduction-of-the-new-web-language/284"
+					target="_blank">HTML</a>&nbsp;where you insert the code above): estilo.css and
+					script.js, besides being a reference to the jQuery library.</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>Now let's start formatting the
+					page, and then insert the menu items (tiles). In estilo.css file, start by
+					entering the code contained in Listing 2.</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><b><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>Listing 2:</span></b><span
+					style='font-size:13.5pt;font-family:"Verdana","sans-serif";color:black'>&nbsp;Formatting
+					initial CSS</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>@font-face { font-family: Century; src: url('GOTHIC.ttf'); }</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'> </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>body{</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    font-family: Century;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    background: rgb(51,51,51);</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    color: #fff;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    padding:20px;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>}</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'> </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>.pagina{</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    width:auto;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    height:auto;     </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>}</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'> </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>.linha{</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    width:auto;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    padding:5px;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    height:auto;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    display:table;      </span></p>
+					
+					<p class=MsoNormal style='line-height:16.0pt;background:#F7F7F7'><span
+					style='font-size:10.0pt;font-family:"Courier New";color:black'>}</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>Earlier this code, we used a
+					feature of CSS3, the @ font-face which allows you to import from a source file
+					(.Ttf, .Otf, etc). The source GOTHIC.ttf can be found in the folder C: \
+					Windows \ Fonts in Windows 7, but if the reader prefers, you can use a native
+					source. For this, it would suffice to remove the first line, and the formatting
+					of the body, the name of the count in the native place of Century.</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>In the class &quot;linha&quot;,
+					defined as the property display table, so that the tiles are arranged properly.
+					This is necessary because we use the float property set to left of tiles.</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>Let us change the contents of
+					the div &quot;pagina&quot;, adding some tiles for this, we use the following
+					code.</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><b><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>Listing 3</span></b><span
+					style='font-size:13.5pt;font-family:"Verdana","sans-serif";color:black'>: Tiles
+					added</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>&lt;div class=&quot;pagina&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    &lt;div class=&quot;linha&quot;&gt;          </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile tileLargo&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;           </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile tileLargo&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    &lt;div class=&quot;linha&quot;&gt;          </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile tileLargo&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;           </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;           </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile tileLargo&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    &lt;/div&gt;       </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    &lt;div class=&quot;linha&quot;&gt;          </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;           </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile tileLargo&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;   </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>&lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='line-height:16.0pt;background:#F7F7F7'><span
+					style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>Note that some tiles have two
+					classes, &quot;tile&quot; and &quot;tileLargo&quot;. The class &quot;tile&quot;
+					is generic and serve to set some properties common to both types of item. The
+					class &quot;tilLargo&quot;, in turn, will only increased width relative to
+					another.</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>Let's look at Listing 4, which
+					defines the formatting of the original tiles.</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><b><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>Listing 4</span></b><span
+					style='font-size:13.5pt;font-family:"Verdana","sans-serif";color:black'>:
+					Formatting initial tiles</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>.tile{</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    height:100px;   </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    width:100px;  </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    float:left;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    margin:0 5px 0 0;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    padding:2px;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>}</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'> </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>.tileLargo{</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    width:210px;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>}</span></p>
+					
+					<p class=MsoNormal style='line-height:16.0pt;background:#F7F7F7'><span
+					style='font-size:10.0pt;font-family:"Courier New";color:black'> </span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>The float property value is set
+					to the left so that the tiles in the same row are arranged laterally. The
+					dimensions used were standard 100x100px, but the reader can change the values </span><span
+					style='font-size:13.5pt;font-family:"Arial","sans-serif";color:black'>&#8203;&#8203;</span><span
+					style='font-size:13.5pt;font-family:"Verdana","sans-serif";color:black'>for SUS
+					preference.</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>It is important that the class
+					is defined tileLargo after class tile, so that when you load the page, the
+					width of 210px is applied after the initial width of 100px. Otherwise, the
+					configuration that would exist would be the class tile.</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>Opening the file in the
+					browser, we still can not see the menu as we would like. This is just because
+					the color of the tiles was not set. For that, create some classes in the CSS
+					file containing only the color of the background. In this example, I used four
+					colors, as seen below in Figure 5.</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><b><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>Listing 5</span></b><span
+					style='font-size:13.5pt;font-family:"Verdana","sans-serif";color:black'>:
+					Classes colors of tiles</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>.amarelo{</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    background:#DAA520;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>}</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'> </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>.vermelho{</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    background:#CD0000;  </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>}</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'> </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>.azul{</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    background:#4682B4;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>}</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'> </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>.verde{</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    background-color: #2E8B57;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>}</span></p>
+					
+					<p class=MsoNormal style='line-height:16.0pt;background:#F7F7F7'><span
+					style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>These classes and colors can
+					also be customized according to the preference of the reader.</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>The next step is to attach the
+					tiles to the color classes. In my case, the contents of the div
+					&quot;page&quot; was changed as shown in Listing 6.</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><b><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>Listing 6</span></b><span
+					style='font-size:13.5pt;font-family:"Verdana","sans-serif";color:black'>:
+					Association of tiles to color</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>&lt;div class=&quot;pagina&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    &lt;div class=&quot;linha&quot;&gt;          </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile amarelo&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile azul&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile tileLargo vermelho&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile verde&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;           </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile tileLargo amarelo&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    &lt;div class=&quot;linha&quot;&gt;          </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile tileLargo amarelo&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile azul&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;           </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile verde&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile vermelho&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;           </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile tileLargo verde&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    &lt;/div&gt;       </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    &lt;div class=&quot;linha&quot;&gt;          </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile amarelo&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile verde&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile vermelho&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;           </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile tileLargo verde&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile azul&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;div class=&quot;tile verde&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        &lt;/div&gt;   </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    &lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>&lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>&nbsp;</span></p>
+					
+					<p class=MsoNormal style='line-height:16.0pt;background:#F7F7F7'><span
+					style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>Now yes you can see the result,
+					which should be similar to Figure 2.</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					normal'><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'><img
+					border=0 width=800 height=523 id="Picture 2"
+					src="/img/business2.jpg"
+					alt="tiles defined"></span><span style='font-size:13.5pt;font-family:"Verdana","sans-serif";
+					color:black'><br>
+					<br>
+					</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><b><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>Figure 2</span></b><span
+					style='font-size:13.5pt;font-family:"Verdana","sans-serif";color:black'>: tiles
+					defined</span></p>
+					
+					<p class=MsoNormal style='margin-top:30.0pt;margin-right:0in;margin-bottom:
+					0in;margin-left:0in;margin-bottom:.0001pt;line-height:37.5pt'><span
+					style='font-size:21.5pt;font-family:"Arial","sans-serif";color:#5B5B5B'>Pretty
+					simple, isn't it?</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>I'll just apply some additional
+					settings by placing a text within each tile and setting a background image for
+					the page. Listing 7 shows how a tile was based on it the rest can be done also.</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><b><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>Listing 7</span></b><span
+					style='font-size:13.5pt;font-family:"Verdana","sans-serif";color:black'>:
+					Example of tile with title</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>&lt;div class=&quot;tile amarelo&quot;&gt;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    &lt;span class=&quot;titulo&quot;&gt;Tile
+					1&lt;/span&gt;&lt;br/&gt;</span></p>
+					
+					<p class=MsoNormal style='line-height:16.0pt;background:#F7F7F7'><span
+					style='font-size:10.0pt;font-family:"Courier New";color:black'>&lt;/div&gt;</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>The background of the body can
+					be changed just by adding the path of the image, in my case, is called
+					&quot;wallpaper.jpg&quot;. The body was then formatting as shown in Listing 8.</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><b><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>Listing 8</span></b><span
+					style='font-size:13.5pt;font-family:"Verdana","sans-serif";color:black'>: New
+					settings of body</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>body{</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    font-family: Century;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    background: rgb(51,51,51) url(&quot;wallpaper.jpg&quot;);</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    color: #fff;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    padding:20px;</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>}</span></p>
+					
+					<p class=MsoNormal style='line-height:16.0pt;background:#F7F7F7'><span
+					style='font-size:10.0pt;font-family:"Courier New";color:black'> </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					normal'><span style='font-size:13.5pt;font-family:"Verdana","sans-serif";
+					color:black;background:white'>The new result is shown in Figure 3.&nbsp;</span><span
+					style='font-size:12.0pt;font-family:"Times New Roman","serif"'><img border=0
+					width=800 height=500 id="Picture 1"
+					src="/img/business2.jpg"
+					alt="New page layout"></span><span style='font-size:13.5pt;font-family:"Verdana","sans-serif";
+					color:black'><br>
+					<br>
+					</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><b><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>Figure 3</span></b><span
+					style='font-size:13.5pt;font-family:"Verdana","sans-serif";color:black'>: New
+					page layout</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>To finish, apply a small effect
+					remains the tiles so they have changed the look when clicked. To this we must
+					add the code in Listing 9 to script.js file (which should not be content until
+					now).</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><b><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>Listing 9</span></b><span
+					style='font-size:13.5pt;font-family:"Verdana","sans-serif";color:black'>:
+					Content of archive script.js</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>$(function(){</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    $(&quot;.tile&quot;).mousedown(function(){       </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        $(this).addClass(&quot;selecionado&quot;);</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    });</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'> </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    $(&quot;.tile&quot;).mouseup(function(){     </span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>        $(this).removeClass(&quot;selecionado&quot;);</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    });</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>});</span></p>
+					
+					<p class=MsoNormal style='line-height:16.0pt;background:#F7F7F7'><span
+					style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>When the mouse button is
+					pressed, will add the CSS class &quot;selected&quot; to the tile and when the
+					button is released, this class will be removed. The aforementioned class (see
+					Listing 10) only changes the background color of the tile, but another effect
+					could be applied.</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><b><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>Listing 10</span></b><span
+					style='font-size:13.5pt;font-family:"Verdana","sans-serif";color:black'>: Class
+					to highlight the tile clicked</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>.selecionado{</span></p>
+					
+					<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+					16.0pt;background:#F7F7F7'><span style='font-size:10.0pt;font-family:"Courier New";
+					color:black'>    background-color: #483D8B;</span></p>
+					
+					<p class=MsoNormal style='line-height:16.0pt;background:#F7F7F7'><span
+					style='font-size:10.0pt;font-family:"Courier New";color:black'>}</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>Thus we finalized our page. In
+					fact is not the same thing as the menu of Windows 8, but it is undoubtedly a
+					viable solution to this situation.</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>With some knowledge of HTML,
+					CSS and Javascript, the reader can change the look of my set and features for
+					tiles, for example, use them as a link.</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>I hope the content of this
+					article may be useful in helping web developers interested in developing a
+					layout style meter.</span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>You can see the menu in action&nbsp;<a
+					href="http://jsbin.com/duvehida/1" target="_blank">here</a></span></p>
+					
+					<p class=MsoNormal style='line-height:normal'><span style='font-size:13.5pt;
+					font-family:"Verdana","sans-serif";color:black'>I hope you liked and see you
+					next time.</span></p>
+					
+					<p class=MsoNormal><span style='font-size:13.5pt;line-height:107%;font-family:
+					"Verdana","sans-serif";color:black'><br>
+					<br>
+					Read more:&nbsp;<a
+					href="http://mrbool.com/creating-a-metro-style-menu-in-html-and-css/26266#ixzz3dzg07YVv"><span
+					style='color:#003399'>http://mrbool.com/creating-a-metro-style-menu-in-html-and-css/26266#ixzz3dzg07YVv</span></a></span></p>
+					
+				</div> 
+			
+			</div>          
+        </div>
+        <div class="col-lg-4 " >
+        	<div id="relatedNotes">
+        	<h3 class="columnHeader">Related Notes</h3>
+        	<ul class="nav">
+            	<li>
+	            	<div class="resultLeftBox">
+	            		<a href="#/viewnote/keyID1"><!--  Image should be 285 X 160 -->
+	            			<img class="img-responsive" src="/img/business2.jpg" alt='Integrate with your local directory'/>
+	            		</a>
+	            	</div>	
+	            	<div class="resultRightBox">
+			           <h4 class="no-margin-heading"><a href="#/viewnote/keyID1">Integrate gdirectory</a></h4>
+		             </div>	   
+		            <div style="clear: both;"></div>          
+                </li>
+                <li>
+	            	<div class="resultLeftBox">
+	            		<a href="#/viewnote/keyID1"><!--  Image should be 285 X 160 -->
+	            			<img class="img-responsive" src="/img/business2.jpg" alt='Integrate with your local directory'/>
+	            		</a>
+	            	</div>	
+	            	<div class="resultRightBox">
+			           <h4 class="no-margin-heading"><a href="#/viewnote/keyID2">Integrate with your local directory Integrate with your local directory</a></h4>
+		             </div>	  
+		             <div style="clear: both;"></div>           
+                </li>
+                <li>
+	            	<div class="resultLeftBox">
+	            		<a href="#/viewnote/keyID1"><!--  Image should be 285 X 160 -->
+	            			<img class="img-responsive" src="/img/business2.jpg" alt='Integrate with your local directory'/>
+	            		</a>
+	            	</div>	
+	            	<div class="resultRightBox">
+			           <h4 class="no-margin-heading"><a href="#/viewnote/keyID3">Integrate with your local directory</a></h4>
+		             </div>	  
+		             <div style="clear: both;"></div>           
+                </li>
+                <li>
+	            	<div class="resultLeftBox">
+	            		<a href="#/viewnote/keyID1"><!--  Image should be 285 X 160 -->
+	            			<img class="img-responsive" src="/img/business2.jpg" alt='Integrate with your local directory'/>
+	            		</a>
+	            	</div>	
+	            	<div class="resultRightBox">
+			           <h4 class="no-margin-heading"><a href="#/viewnote/keyID4">Integrate with your local directory</a></h4>
+		             </div>	    
+		             <div style="clear: both;"></div>         
+                </li>
+                <li>
+	            	<div class="resultLeftBox">
+	            		<a href="#/viewnote/keyID1"><!--  Image should be 285 X 160 -->
+	            			<img class="img-responsive" src="/img/business2.jpg" alt='Integrate with your local directory'/>
+	            		</a>
+	            	</div>	
+	            	<div class="resultRightBox">
+			           <h4 class="no-margin-heading"><a href="#/viewnote/keyID5">Integrate with your local directory</a></h4>
+		             </div>	  
+		             <div style="clear: both;"></div>           
+                </li>                
+            </ul>
+            </div>
+        </div>
+    </div>
+</div>

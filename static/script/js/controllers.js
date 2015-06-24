@@ -25,7 +25,7 @@ conferenceApp.controllers = angular.module('conferenceControllers', ['ui.bootstr
  * A controller used for the My Profile page.
  */
 conferenceApp.controllers.controller('MyProfileCtrl',
-    function ($scope, $log, oauth2Provider, HTTP_ERRORS) {
+    function ($scope, $log, HTTP_ERRORS) {
         $scope.submitted = false;
         $scope.loading = false;
 
@@ -79,12 +79,7 @@ conferenceApp.controllers.controller('MyProfileCtrl',
                     }
                 );
             };
-            if (!oauth2Provider.signedIn) {
-                var modalInstance = oauth2Provider.showLoginModal();
-                modalInstance.result.then(retrieveProfileCallback);
-            } else {
-                retrieveProfileCallback();
-            }
+            retrieveProfileCallback();
         };
 
         /**
@@ -105,8 +100,7 @@ conferenceApp.controllers.controller('MyProfileCtrl',
                             $scope.alertStatus = 'warning';
                             $log.error($scope.messages + 'Profile : ' + JSON.stringify($scope.profile));
 
-                            if (resp.code && resp.code == HTTP_ERRORS.UNAUTHORIZED) {
-                                oauth2Provider.showLoginModal();
+                            if (resp.code && resp.code == HTTP_ERRORS.UNAUTHORIZED) {                                
                                 return;
                             }
                         } else {
@@ -135,7 +129,7 @@ conferenceApp.controllers.controller('MyProfileCtrl',
  * A controller used for the Create conferences page.
  */
 conferenceApp.controllers.controller('CreateConferenceCtrl',
-    function ($scope, $log, oauth2Provider, HTTP_ERRORS) {
+    function ($scope, $log, HTTP_ERRORS) {
 
         /**
          * The conference object being edited in the page.
@@ -225,8 +219,7 @@ conferenceApp.controllers.controller('CreateConferenceCtrl',
                             $scope.alertStatus = 'warning';
                             $log.error($scope.messages + ' Conference : ' + JSON.stringify($scope.conference));
 
-                            if (resp.code && resp.code == HTTP_ERRORS.UNAUTHORIZED) {
-                                oauth2Provider.showLoginModal();
+                            if (resp.code && resp.code == HTTP_ERRORS.UNAUTHORIZED) {                                
                                 return;
                             }
                         } else {
@@ -249,7 +242,7 @@ conferenceApp.controllers.controller('CreateConferenceCtrl',
  * @description
  * A controller used for the Show conferences page.
  */
-conferenceApp.controllers.controller('ShowConferenceCtrl', function ($scope, $log, oauth2Provider, HTTP_ERRORS) {
+conferenceApp.controllers.controller('ShowConferenceCtrl', function ($scope, $log, HTTP_ERRORS) {
 
     /**
      * Holds the status if the query is being executed.
@@ -313,10 +306,7 @@ conferenceApp.controllers.controller('ShowConferenceCtrl', function ($scope, $lo
      */
     $scope.tabYouHaveCreatedSelected = function () {
         $scope.selectedTab = 'YOU_HAVE_CREATED';
-        if (!oauth2Provider.signedIn) {
-            oauth2Provider.showLoginModal();
-            return;
-        }
+        
         $scope.queryConferences();
     };
 
@@ -325,10 +315,7 @@ conferenceApp.controllers.controller('ShowConferenceCtrl', function ($scope, $lo
      */
     $scope.tabYouWillAttendSelected = function () {
         $scope.selectedTab = 'YOU_WILL_ATTEND';
-        if (!oauth2Provider.signedIn) {
-            oauth2Provider.showLoginModal();
-            return;
-        }
+        
         $scope.queryConferences();
     };
 
@@ -485,7 +472,7 @@ conferenceApp.controllers.controller('ShowConferenceCtrl', function ($scope, $lo
                         $log.error($scope.messages);
 
                         if (resp.code && resp.code == HTTP_ERRORS.UNAUTHORIZED) {
-                            oauth2Provider.showLoginModal();
+                            
                             return;
                         }
                     } else {
@@ -522,7 +509,7 @@ conferenceApp.controllers.controller('ShowConferenceCtrl', function ($scope, $lo
                         $log.error($scope.messages);
 
                         if (resp.code && resp.code == HTTP_ERRORS.UNAUTHORIZED) {
-                            oauth2Provider.showLoginModal();
+                            
                             return;
                         }
                     } else {
@@ -620,7 +607,7 @@ conferenceApp.controllers.controller('ConferenceDetailCtrl', function ($scope, $
                     $log.error($scope.messages);
 
                     if (resp.code && resp.code == HTTP_ERRORS.UNAUTHORIZED) {
-                        oauth2Provider.showLoginModal();
+                        
                         return;
                     }
                 } else {
@@ -656,7 +643,7 @@ conferenceApp.controllers.controller('ConferenceDetailCtrl', function ($scope, $
                     $scope.alertStatus = 'warning';
                     $log.error($scope.messages);
                     if (resp.code && resp.code == HTTP_ERRORS.UNAUTHORIZED) {
-                        oauth2Provider.showLoginModal();
+                        
                         return;
                     }
                 } else {
@@ -691,7 +678,7 @@ conferenceApp.controllers.controller('ConferenceDetailCtrl', function ($scope, $
  * such as user authentications.
  *
  */
-conferenceApp.controllers.controller('RootCtrl', function ($scope, $location, oauth2Provider) {
+conferenceApp.controllers.controller('RootCtrl', function ($scope, $location) {
 
     /**
      * Returns if the viewLocation is the currently viewed page.
@@ -701,63 +688,7 @@ conferenceApp.controllers.controller('RootCtrl', function ($scope, $location, oa
      */
     $scope.isActive = function (viewLocation) {
         return viewLocation === $location.path();
-    };
-
-    /**
-     * Returns the OAuth2 signedIn state.
-     *
-     * @returns {oauth2Provider.signedIn|*} true if siendIn, false otherwise.
-     */
-    $scope.getSignedInState = function () {
-        return oauth2Provider.signedIn;
-    };
-
-    /**
-     * Calls the OAuth2 authentication method.
-     */
-    $scope.signIn = function () {
-        oauth2Provider.signIn(function () {
-            gapi.client.oauth2.userinfo.get().execute(function (resp) {
-                $scope.$apply(function () {
-                    if (resp.email) {
-                        oauth2Provider.signedIn = true;
-                        $scope.alertStatus = 'success';
-                        $scope.rootMessages = 'Logged in with ' + resp.email;
-                    }
-                });
-            });
-        });
-    };
-
-    /**
-     * Render the signInButton and restore the credential if it's stored in the cookie.
-     * (Just calling this to restore the credential from the stored cookie. So hiding the signInButton immediately
-     *  after the rendering)
-     */
-    $scope.initSignInButton = function () {
-        gapi.signin.render('signInButton', {
-            'callback': function () {
-                jQuery('#signInButton button').attr('disabled', 'true').css('cursor', 'default');
-                if (gapi.auth.getToken() && gapi.auth.getToken().access_token) {
-                    $scope.$apply(function () {
-                        oauth2Provider.signedIn = true;
-                    });
-                }
-            },
-            'clientid': oauth2Provider.CLIENT_ID,
-            'cookiepolicy': 'single_host_origin',
-            'scope': oauth2Provider.SCOPES
-        });
-    };
-
-    /**
-     * Logs out the user.
-     */
-    $scope.signOut = function () {
-        oauth2Provider.signOut();
-        $scope.alertStatus = 'success';
-        $scope.rootMessages = 'Logged out';
-    };
+    }; 
 
     /**
      * Collapses the navbar on mobile devices.
@@ -767,32 +698,6 @@ conferenceApp.controllers.controller('RootCtrl', function ($scope, $location, oa
     };
 
 });
-
-
-/**
- * @ngdoc controller
- * @name OAuth2LoginModalCtrl
- *
- * @description
- * The controller for the modal dialog that is shown when an user needs to login to achive some functions.
- *
- */
-conferenceApp.controllers.controller('OAuth2LoginModalCtrl',
-    function ($scope, $modalInstance, $rootScope, oauth2Provider) {
-        $scope.singInViaModal = function () {
-            oauth2Provider.signIn(function () {
-                gapi.client.oauth2.userinfo.get().execute(function (resp) {
-                    $scope.$root.$apply(function () {
-                        oauth2Provider.signedIn = true;
-                        $scope.$root.alertStatus = 'success';
-                        $scope.$root.rootMessages = 'Logged in with ' + resp.email;
-                    });
-
-                    $modalInstance.close();
-                });
-            });
-        };
-    });
 
 /**
  * @ngdoc controller

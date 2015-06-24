@@ -1,0 +1,155 @@
+<div ><!-- ng-controller="NoteSearchCtrl" ng-init="init()" -->
+    <div class="row">
+        <!-- <div class="col-lg-12">
+            <div id="messages" class="alert alert-{{alertStatus}}" ng-show="messages">
+                <span ng-bind="messages"></span>
+                <i class="dismiss-messages pull-right glyphicon glyphicon-remove" ng-click="messages = ''"
+                   ng-show="messages"></i>
+            </div>
+            <img class="spinner" src="/img/ajax-loader.gif" ng-show="loading"/>
+        </div> -->
+    </div>
+    <div class="row caregoryBox">
+        <div class="col-lg-9">       
+        	
+        	<ul class="breadcrumb columnTop">
+  				<li><a href="#/category/category1">Category 1</a></li>
+  				<li><a href="#/category/subcategory2">SubCategory 2</a></li>  				
+  				<li class="active">Data</li>
+			</ul>
+			     
+            <h3 class="columnHeader">Category :  bla bla bla</h3>            
+            <ul id="noteResults" class="nav">     
+            	<li>
+	            	<h2 class="no-margin-heading"><a href="#/viewnote/keyID1">Integrate with your local directory</a></h2>
+		            <hr class="bg-Blue">
+	            	<div class="resultLeftBox">
+	            		<a href="#/viewnote/keyID1"><!--  Image should be 285 X 160 -->
+	            			<img class="img-responsive" src="/img/business2.jpg" alt='Integrate with your local directory'/>
+	            		</a>
+	            	</div>
+		            <div class="resultRightBox">
+			            <div>
+			                  Use the same user accounts and groups in the cloud that you already use on premises. 
+			                 Use the same user accounts and groups in the cloud that you already use on premises. 
+			                 Use the same user accounts and groups in the cloud that you already use on premises.	                                           
+			              <br>
+			                  <a href="#/viewnote/keyID1">Show Note...</a>
+			             </div>
+		             </div>
+                </li>
+                <li>
+	            	<h2 class="no-margin-heading"><a href="#/viewnote/keyID2">Integrate with your local directory</a></h2>
+		            <hr class="bg-Blue">
+	            	<div class="resultLeftBox">
+	            		<a href="#/viewnote/keyID2">
+	            			<img class="img-responsive" src="/img/business2.jpg" alt='Integrate with your local directory'/>
+	            		</a>
+	            	</div>
+		            <div class="resultRightBox">
+			            <div>
+			                  Use the same user accounts and groups in the cloud that you already use on premises. 
+			                 Use the same user accounts and groups in the cloud that you already use on premises. 
+			                 Use the same user accounts and groups in the cloud that you already use on premises.	                                           
+			              <br>
+			                  <a href="#/viewnote/keyID2">Show Note...</a>
+			             </div>
+		             </div>
+                </li>
+                <li>
+	            	<h2 class="no-margin-heading"><a href="#/viewnote/keyID3">Integrate with your local directory</a></h2>
+		            <hr class="bg-Blue">
+	            	<div class="resultLeftBox">
+	            		<a href="#/viewnote/keyID3">
+	            			<img class="img-responsive" src="/img/business2.jpg" alt='Integrate with your local directory'/>
+	            		</a>
+	            	</div>
+		            <div class="resultRightBox">
+			            <div>
+			                  Use the same user accounts and groups in the cloud that you already use on premises. 
+			                 Use the same user accounts and groups in the cloud that you already use on premises. 
+			                 Use the same user accounts and groups in the cloud that you already use on premises.	                                           
+			              <br>
+			                  <a href="#/viewnote/keyID3">Show Note...</a>
+			             </div>
+		             </div>
+                </li>
+            </ul>  
+            
+             <ul class="pagination" ><!-- ng-show="conferences.length > 0" -->
+                <li ng-class="{disabled: pagination.currentPage == 0 }">
+                    <a ng-class="{disabled: pagination.currentPage == 0 }"
+                       ng-click="pagination.isDisabled($event) || (pagination.currentPage = 0)">&lt&lt</a>
+                </li>
+                <li ng-class="{disabled: pagination.currentPage == 0 }">
+                    <a ng-class="{disabled: pagination.currentPage == 0 }"
+                       ng-click="pagination.isDisabled($event) || (pagination.currentPage = pagination.currentPage - 1)">&lt</a>
+                </li>
+
+                <!-- ng-repeat creates a new scope. Need to specify the pagination.currentPage as $parent.pagination.currentPage -->
+                <li ng-repeat="page in pagination.pageArray()" ng-class="{active: $parent.pagination.currentPage == page}">
+                    <a ng-click="$parent.pagination.currentPage = page">{{page + 1}}</a>
+                </li>
+
+                <li ng-class="{disabled: pagination.currentPage == pagination.numberOfPages() - 1}">
+                    <a ng-class="{disabled: pagination.currentPage == pagination.numberOfPages() - 1}"
+                       ng-click="pagination.isDisabled($event) || (pagination.currentPage = pagination.currentPage + 1)">&gt</a>
+                </li>
+                <li ng-class="{disabled: pagination.currentPage == pagination.numberOfPages() - 1}">
+                    <a ng-class="{disabled: pagination.currentPage == pagination.numberOfPages() - 1}"
+                       ng-click="pagination.isDisabled($event) || (pagination.currentPage = pagination.numberOfPages() - 1)">&gt&gt</a>
+                </li>
+            </ul>          
+        </div>
+        <div class="col-lg-3" >
+        	<div id="subcategoryBox">
+	        	<h3 class="columnHeader">Sub-Category</h3>
+	        	<ul class="list-group">
+				  <li class="list-group-item">
+				    <span class="badge">14</span>
+				    <a href="#/category/category1">Category 1</a>
+				  </li>
+				  <li class="list-group-item">
+				    <span class="badge">2</span>
+				    <a href="#/category/Dapibusacfacilisisin">Dapibus ac facilisis in</a>
+				  </li>
+				  <li class="list-group-item">
+				    <span class="badge">1</span>
+				    <a href="#/category/Morbileorisus">Morbi leo risus</a>
+				  </li>
+				</ul>
+            </div>
+            <div id="archiveGroupBox">
+	        	<h3 class="columnHeader">Archive</h3>
+	        	<ul class="list-group">
+				  <li class="list-group-item">
+				    <span class="badge">14</span>
+				    <a href="#/archive/2015">2015</a>
+				    	<ul class="list-group">
+						  <li class="list-group-item">
+						    <span class="badge">4</span>
+						    <a href="#/archive/2015/january">January</a>
+						  </li>
+						  <li class="list-group-item">
+						    <span class="badge">5</span>
+						    <a href="#/archive/2015/march">March</a>
+						  </li>
+						  <li class="list-group-item">
+						    <span class="badge">5</span>
+						    <a href="#/archive/2015/august">August</a>
+						  </li>
+						</ul>
+				  </li>
+				  <li class="list-group-item">
+				    <span class="badge">2</span>
+				    <a href="#/archive/2014">2014</a>
+				  </li>
+				  <li class="list-group-item">
+				    <span class="badge">5</span>
+				    <a href="#/archive/2013">2013</a>
+				  </li>
+				</ul>
+            </div>
+        </div>
+    </div>
+</div>

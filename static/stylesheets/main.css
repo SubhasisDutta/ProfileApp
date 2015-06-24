@@ -1488,3 +1488,81 @@ ul#conferences-list {
 .section-a {
     padding: 50px 0;
 }
+#searchBox{
+	width: 100%;
+}
+
+#searchFormBox{
+	margin-top: 7px;
+	margin-left: 15px;
+	padding-right: 15px;
+}
+#searchFormBox input[type="text"]{
+	width: 100%;
+	padding-left: 5px;
+}
+.navbar-nav.navbar-right{
+	width: 40%;
+}
+#contentContainer{
+	padding-top: 50px;
+}
+.bg-Blue {
+  background: #007fff !important;
+  border: 0;
+  height: 2px;
+  margin:7px 0;
+}
+.no-margin-heading{
+	margin: 0;
+}
+#noteResults li{
+	box-shadow: #000 2px 2px 4px;
+	margin-bottom: 20px;
+	padding: 5px 10px;
+	float: left;
+}
+.columnHeader{
+	margin: 20px 0;
+	line-height: 1em;
+}
+.resultLeftBox{
+	width: 30%;
+	float: left;
+	padding: 5px;
+	box-shadow: #333 2px 2px 4px;	
+	margin: 10px 0;
+}
+.resultRightBox{
+	width: 70%;
+	float: right;
+	padding: 5px 15px;
+}
+#noteResults a{
+	color: #333;
+}
+#noteResults a:hover{
+	color: #007fff;
+}
+#noteResults .resultRightBox a,#relatedNotes a,.caregoryBox a{
+	color: #007fff;
+}
+#noteResults .resultRightBox a:hover,#relatedNotes a:hover,.caregoryBox a:hover{
+	color: #333;
+}
+#noteDetailsBody{
+	padding: 0 15px;
+}
+.columnTop{
+	margin-top:20px;
+}
+#relatedNotes{
+	margin-top:20px;
+	box-shadow: #000 2px 2px 4px;
+	margin-bottom: 20px;
+	padding: 5px 10px;
+	float: left;
+}
+#relatedNotes li{
+	padding: 5px;
+}
