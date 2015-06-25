@@ -1,4 +1,5 @@
-<div ><!-- ng-controller="NoteSearchCtrl" ng-init="init()" -->
+<div ng-controller="NoteCategoryCtrl">
+    <a id="topIcon"></a>
     <div class="row">
         <!-- <div class="col-lg-12">
             <div id="messages" class="alert alert-{{alertStatus}}" ng-show="messages">
@@ -13,67 +14,29 @@
         <div class="col-lg-9">       
         	
         	<ul class="breadcrumb columnTop">
-  				<li><a href="#/category/category1">Category 1</a></li>
-  				<li><a href="#/category/subcategory2">SubCategory 2</a></li>  				
+  				<li><a href="#/category/category1" ng-click="goToTop()">Category 1</a></li>
+  				<li><a href="#/category/subcategory2" ng-click="goToTop()">SubCategory 2</a></li>  				
   				<li class="active">Data</li>
 			</ul>
 			     
             <h3 class="columnHeader">Category :  bla bla bla</h3>            
-            <ul id="noteResults" class="nav">     
-            	<li>
-	            	<h2 class="no-margin-heading"><a href="#/viewnote/keyID1">Integrate with your local directory</a></h2>
+            <ul id="noteResults" class="nav" >     
+            	<li ng-repeat="note in notes">
+	            	<h2 class="no-margin-heading"><a ng-href="#/viewnote/{{note.handle}}">{{note.title}}</a></h2>
 		            <hr class="bg-Blue">
 	            	<div class="resultLeftBox">
-	            		<a href="#/viewnote/keyID1"><!--  Image should be 285 X 160 -->
-	            			<img class="img-responsive" src="/img/business2.jpg" alt='Integrate with your local directory'/>
+	            		<a ng-href="#/viewnote/{{note.handle}}"><!--  Image should be 285 X 160 -->
+	            			<img class="img-responsive" ng-src="{{note.icon}}" alt='{{note.title}}'/>
 	            		</a>
 	            	</div>
 		            <div class="resultRightBox">
 			            <div>
-			                  Use the same user accounts and groups in the cloud that you already use on premises. 
-			                 Use the same user accounts and groups in the cloud that you already use on premises. 
-			                 Use the same user accounts and groups in the cloud that you already use on premises.	                                           
+			                  {{note.summery}}	                                           
 			              <br>
-			                  <a href="#/viewnote/keyID1">Show Note...</a>
+			                  <a href="#/viewnote/{{note.handle}}">Show Note...</a>
 			             </div>
 		             </div>
-                </li>
-                <li>
-	            	<h2 class="no-margin-heading"><a href="#/viewnote/keyID2">Integrate with your local directory</a></h2>
-		            <hr class="bg-Blue">
-	            	<div class="resultLeftBox">
-	            		<a href="#/viewnote/keyID2">
-	            			<img class="img-responsive" src="/img/business2.jpg" alt='Integrate with your local directory'/>
-	            		</a>
-	            	</div>
-		            <div class="resultRightBox">
-			            <div>
-			                  Use the same user accounts and groups in the cloud that you already use on premises. 
-			                 Use the same user accounts and groups in the cloud that you already use on premises. 
-			                 Use the same user accounts and groups in the cloud that you already use on premises.	                                           
-			              <br>
-			                  <a href="#/viewnote/keyID2">Show Note...</a>
-			             </div>
-		             </div>
-                </li>
-                <li>
-	            	<h2 class="no-margin-heading"><a href="#/viewnote/keyID3">Integrate with your local directory</a></h2>
-		            <hr class="bg-Blue">
-	            	<div class="resultLeftBox">
-	            		<a href="#/viewnote/keyID3">
-	            			<img class="img-responsive" src="/img/business2.jpg" alt='Integrate with your local directory'/>
-	            		</a>
-	            	</div>
-		            <div class="resultRightBox">
-			            <div>
-			                  Use the same user accounts and groups in the cloud that you already use on premises. 
-			                 Use the same user accounts and groups in the cloud that you already use on premises. 
-			                 Use the same user accounts and groups in the cloud that you already use on premises.	                                           
-			              <br>
-			                  <a href="#/viewnote/keyID3">Show Note...</a>
-			             </div>
-		             </div>
-                </li>
+                </li>               
             </ul>  
             
              <ul class="pagination" ><!-- ng-show="conferences.length > 0" -->

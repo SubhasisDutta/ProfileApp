@@ -10,36 +10,29 @@ handlers:
 - url: /favicon\.ico
   static_files: static/icons/favicon.ico
   upload: static/icons/favicon\.ico
-
-- url: /_include/  
-  static_dir: static/_include 
-  
-- url: /tempasset/  
-  static_dir: static/tempasset
  
-- url: /stylesheets/
-  mime_type: text/css
-  static_dir: static/stylesheets
-  
-- url: /js
-  static_dir: static/script/js
+- url: /temp/  
+  static_dir: static/temp
+ 
+- url: /js/
+  static_dir: static/js
 
-- url: /img
+- url: /img/
   static_dir: static/images
 
-- url: /css
-  static_dir: static/stylesheets
+- url: /css/
+  mime_type: text/css
+  static_dir: static/css
 
-- url: /fonts
+- url: /fonts/
   static_dir: static/fonts
 
-- url: /partials
+- url: /partials/
   static_dir: static/partials
-  
-- url: /note
-  static_files: template/index.html
-  upload: template/index\.html
 
+- url: /admin/.*
+  script: main.application
+  login: admin
   
 - url: /tasks/send_confirmation_email
   script: main.app
@@ -52,9 +45,11 @@ handlers:
 - url: /api/.*
   script: conference.api
 
-  
 - url: /.*
-  script: main.application
+  static_files: template/index.html
+  upload: template/index\.html
+  
+
   
 libraries:
 - name: webapp2

@@ -12,37 +12,35 @@
  *
  */
 var app = angular.module('notebookApp',
-    ['conferenceControllers', 'ngRoute', 'ui.bootstrap']).
+    ['noteControllers', 'ngRoute', 'ui.bootstrap']).
     config(['$routeProvider',
         function ($routeProvider) {
             $routeProvider.
                 when('/conference', {
-                    templateUrl: '/partials/show_conferences.html',
-                    controller: 'ShowConferenceCtrl'
+                    templateUrl: '/partials/show_conferences.html'//,controller: 'ShowConferenceCtrl'
                 }).
                 when('/conference/create', {
-                    templateUrl: '/partials/create_conferences.html',
-                    controller: 'CreateConferenceCtrl'
+                    templateUrl: '/partials/create_conferences.html'//,controller: 'CreateConferenceCtrl'
                 }).
                 when('/conference/detail/:websafeConferenceKey', {
-                    templateUrl: '/partials/conference_detail.html',
-                    controller: 'ConferenceDetailCtrl'
+                    templateUrl: '/partials/conference_detail.html'//,controller: 'ConferenceDetailCtrl'
                 }).
                 when('/profile', {
-                    templateUrl: '/partials/profile.html',
-                    controller: 'MyProfileCtrl'
+                    templateUrl: '/partials/profile.html'//,controller: 'MyProfileCtrl'
                 }).
                 when('/search', {
                     templateUrl: '/partials/search.html'                    
                 }).
                 when('/category/:subcategory', {
-                    templateUrl: '/partials/category.html'                    
+                    templateUrl: '/partials/category.html',
+                    controller: 'NoteCategoryCtrl'
                 }).
                 when('/viewnote/:notekey', {
                     templateUrl: '/partials/viewnote.html'                    
                 }).
                 when('/', {
-                    templateUrl: '/partials/home.html'
+                    templateUrl: '/partials/home.html',
+                    controller: 'HomeSliderCtrl'
                 }).
                 otherwise({
                     redirectTo: '/'

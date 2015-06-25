@@ -1,27 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="notebookApp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Subhasis Dutta</title>
-
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/bootstrap-cosmo.css">
-    <link rel="stylesheet" href="/css/jquery.reject.css">
-    <link rel="stylesheet" href="/css/main.css">
-    <link href="_include/css/fonts.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/offcanvas.css">
+    <title>Subhasis Dutta</title> <!-- Find a way to change page title for each view  -->
+    
+	<link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> --> 
+       
+    <link rel="stylesheet" href="/css/lib/bootstrap-cosmo.css">    
+    <link rel="stylesheet" href="/css/lib/jquery.reject.css">
+    <link rel="stylesheet" href="/css/lib/fonts.css" >
+    <link rel="stylesheet" href="/css/lib/offcanvas.css">
+    <link rel="stylesheet" href="/css/main.css">    
+    
     <link rel="shortcut icon" href="/img/favicon.ico">
+    
     <meta property="og:title" content="Subhasis Notebook">
     <meta property="og:type" content="website">
     <meta property="og:description" content="Subhasis Notebook is web app that documents some of the new technologies to work in.">    
     <meta property="og:site_name" content="An web app designed by Subhasis Dutta, powered by Google App Engine.">
 	
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js"></script>
+	<script src="/js/lib/angular.js"></script>
+	<!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script> -->
+	<script src="/js/lib/angular-route.js"></script>
+	<!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js"></script> -->	
 	
+	<!--<script src="/js/lib/angular-touch.js"></script>-->
+	<!-- <script src="//code.angularjs.org/1.2.7/angular-touch.js"></script> -->	
+	
+	<!-- <script src="/js/lib/angular-carousel.min.js"></script> -->
     
       
 </head>
@@ -30,7 +40,7 @@
 <body ng-controller="RootCtrl" >
 <!--[if lte IE 8]><script src="js/ie6/warning.js"></script><script>window.onload=function(){e("js/ie6/")}</script><![endif]-->
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
+    <div class="container">    	
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -48,7 +58,7 @@
                  -->
                  
                 <li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Category <span class="caret"></span></a>
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Notes <span class="caret"></span></a>
 		          <ul class="dropdown-menu" role="menu">
 		            <li><a href="#/category/cloudcomputing">Cloud Computing</a></li>
 		            <li><a href="#/category/artificialintelligence">Artificial Intelligence</a></li>
@@ -117,33 +127,31 @@
 
 <!-- Footer -->
 <footer>
-	<p class="credits">&copy;2015 &nbsp;&nbsp; <a href="http://subhasisdutta.com/" title="Subhasis Dutta | Developer">Subhasis Dutta</a>.</p>
+	<p class="credits">&copy;2015 &nbsp;&nbsp;Developed and Maintained By &nbsp; <a href="http://subhasisdutta.com/" title="Subhasis Dutta | Developer">Subhasis Dutta</a>.</p>
 </footer>
+
 <!--  End Footer -->
+<script src="/js/lib/ui-bootstrap-tpls.js"></script>
+<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script> -->
+<script src="/js/lib/jquery.min.js"></script>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
+<script src="/js/lib/bootstrap.min.js"></script>
+<!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
+<script src="/js/lib/jReject.js"></script>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-<script src="/js/jReject.js"></script>
-<script src="/js/app.js"></script>
-<script src="/js/controllers.js"></script>
+<script src="/js/dev/app.js"></script>
+<script src="/js/dev/noteController.js"></script>
 
  <script>  	   
 		$.reject({  
 		       reject: {	        	
-		            msie: 9, // Microsoft Internet Explorer	8 and less
+		            msie: 8, // Microsoft Internet Explorer	8 and less
 		       },
 		       imagePath: '/img/browsers/'	        
 		});
-			    
-        function init() {           
-        	angular.bootstrap(document, ['notebookApp']);
-        };
-        angular.element(document).ready(function () {
-        	init();
-        });
-    </script> 
+		
+ </script> 
 
 <!-- Analytics -->
 <script type="text/javascript">

@@ -1468,23 +1468,6 @@ ul#conferences-list {
     list-style: none;
 }
 
-.intro-header {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    color: #f8f8f8;
-    text-shadow: black 0.1em 0.1em 0.2em;
-    background: url(/img/meeting-room.jpg) no-repeat center center;
-    background-size: cover;
-    text-align: center;
-}
-
-.intro-message {
-    position: relative;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    vertical-align: middle;
-}
-
 .section-a {
     padding: 50px 0;
 }
@@ -1505,7 +1488,7 @@ ul#conferences-list {
 	width: 40%;
 }
 #contentContainer{
-	padding-top: 50px;
+	padding-top: 50px;	
 }
 .bg-Blue {
   background: #007fff !important;
@@ -1550,6 +1533,15 @@ ul#conferences-list {
 #noteResults .resultRightBox a:hover,#relatedNotes a:hover,.caregoryBox a:hover{
 	color: #333;
 }
+.slide-content a:hover{	
+	color: #007fff;
+}
+.slide-content a{
+	font-size: 26px;
+  	font-weight: bold;
+    text-shadow: #000 2px 2px 4px;
+	color: #FFF;
+}
 #noteDetailsBody{
 	padding: 0 15px;
 }
@@ -1565,4 +1557,57 @@ ul#conferences-list {
 }
 #relatedNotes li{
 	padding: 5px;
+}
+
+.intro-message{
+	float: left;
+	margin-top:20px;
+	box-shadow: #000 2px 2px 4px;
+	margin-bottom: 20px;
+	padding: 10px;
+	height: 80%;
+	width: 100%;
+	
+}
+.intro-message img{
+	max-height: 500px;
+}
+
+#slides_control > div{
+  height: 100%;
+}
+img{
+  margin:auto;
+  width: 100%;
+}
+#slides_control {  
+  width: 100%; 
+ 	
+}
+#slides_control .carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 0%;
+  z-index: 15;
+  width: 100%;
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+  background-color: #333;
+  opacity: 0.5;
+  padding: 5px 0;
+}
+
+#slides_control .carousel-caption {
+  position: absolute;  
+  right: 0%;
+  bottom: 75px;
+  z-index: 10;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right:10%;
+  color: #ffffff;
+  text-align: right;
+    
 }

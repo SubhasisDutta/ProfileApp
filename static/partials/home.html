@@ -1,19 +1,19 @@
 <div class="intro-header">
     <div class="row">
         <div class="col-lg-12">
-            <div class="intro-message">
-                <h1>Welcome to Conference Central</h1>
-
-                <h3>Lets you manage conferences</h3>
-                <hr class="intro-divider">
-                <ul class="list-inline intro-social-buttons">
-                    <li id="signInLink" ng-hide="getSignedInState()" on-click="return false">
-                        <a class="btn btn-default btn-lg" ng-click="signIn()">Google+ SignIn</a>
-                    </li>
-                    <li id="signOutLink" ng-show="getSignedInState()" on-click="return false">
-                        <a class="btn btn-default btn-lg" ng-click="signOut()">Log out</a>
-                    </li>
-                </ul>
+            <div class="intro-message" >
+                <div ng-controller="HomeSliderCtrl" id="slides_control">
+				    <div>
+				      <carousel interval="myInterval">
+				        <slide ng-repeat="slide in slides" active="slide.active">
+				          <img ng-src="{{slide.image}}">
+				          <div class="carousel-caption">
+				            <div class="slide-content"><a ng-href="{{slide.link}}" ng-click="goToTop()">{{slide.title}}</a></div>
+				          </div>
+				        </slide>
+				      </carousel>
+				    </div>
+				  </div>				               
             </div>
         </div>
     </div>
