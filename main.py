@@ -4,24 +4,24 @@ from src.controller.ContactController import ContactModule
 from src.controller.SliderController import SliderWS
 from src.controller.WorkAdminController import WorkAdminCreate,WorkAdminEdit,AddPhotoTOCollection,MapPhotoToWork,AddWorkAttribute
 from src.controller.WorkController import WorkIcon,WorkBigImage,WorkThumbnailPhoto,WorkPhoto,WorkPage
-from src.util import SendConfirmationEmailHandler#,SetAnnouncementHandler
+# from src.util import SendConfirmationEmailHandler#,SetAnnouncementHandler
 
 application = webapp2.WSGIApplication([    
-    ('/CreateWork',WorkAdminCreate),
+    ('/admin/CreateWork',WorkAdminCreate),
     ('/WorkIcon',WorkIcon),
     ('/WorkBigImage',WorkBigImage),
-    ('/EditWork',WorkAdminEdit),
+    ('/admin/EditWork',WorkAdminEdit),
     ('/sliderdata',SliderWS),
-    ('/AddPhoto',AddPhotoTOCollection),    
+    ('/admin/AddPhoto',AddPhotoTOCollection),    
     ('/Photo',WorkPhoto),
     ('/Work',WorkPage),
     ('/ContactMessage',ContactModule),
     ('/Thumbnail',WorkThumbnailPhoto),
-    ('/MapPhotoToWork',MapPhotoToWork),
-    ('/AddAttribute',AddWorkAttribute),
+    ('/admin/MapPhotoToWork',MapPhotoToWork),
+    ('/admin/AddAttribute',AddWorkAttribute),
 #     ('/crons/set_announcement', SetAnnouncementHandler),
-    ('/tasks/send_confirmation_email', SendConfirmationEmailHandler),
-    ('/', HomePage)
+#     ('/tasks/send_confirmation_email', SendConfirmationEmailHandler),
+    ('/profile',HomePage)    
 ], debug=True)
 
 """def main():

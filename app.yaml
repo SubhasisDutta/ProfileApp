@@ -30,27 +30,22 @@ handlers:
 - url: /partials/
   static_dir: static/partials
 
-- url: /legacy/.*
+- url: /_include/  
+  static_dir: static/_include
+
+- url: /profile
   script: main.application
 
 - url: /admin/.*
   script: main.application
-  login: admin
-  
-- url: /tasks/send_confirmation_email
-  script: main.app
-  login: admin
-
-- url: /crons/set_announcement
-  script: main.app
-  login: admin
-
-- url: /api/.*
-  script: conference.api
+  login: admin  
 
 - url: /.*
   static_files: template/index.html
   upload: template/index\.html
+
+
+
   
 
   
