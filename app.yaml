@@ -30,6 +30,9 @@ handlers:
 - url: /partials/
   static_dir: static/partials
 
+- url: /legacy/.*
+  script: main.application
+
 - url: /admin/.*
   script: main.application
   login: admin

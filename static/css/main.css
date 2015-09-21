@@ -637,7 +637,7 @@ nav#menu #menu-nav li a:hover {
 .page {
 	background: #EEEEFF;
 	padding: 10px 0;
-	padding-top:40px;
+	padding-top:20px;
 	position: relative;
 	z-index: 99;
 }
@@ -929,7 +929,7 @@ nav#menu #menu-nav li a:hover {
 }
 
 #contact-form p {
-	margin-bottom: 1px;	
+	margin-bottom: 1px;		
 }
 
 #contact-form input,
@@ -943,7 +943,7 @@ nav#menu #menu-nav li a:hover {
 	-moz-box-shadow: none;
 	box-shadow: none;
 	
-	background: #FFFFFF;
+	background: #EEEEFF;
     color: rgb(51, 51, 51);
     font-size: 16px;
     height: auto;
@@ -1597,6 +1597,10 @@ img{
   background-color: #333;
   opacity: 0.5;
   padding: 5px 0;
+}
+
+.contact-details li a:hover{
+	color: ##0059b3;
 }
 
 #slides_control .carousel-caption {

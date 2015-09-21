@@ -26,7 +26,13 @@ var app = angular.module('notebookApp',
                     templateUrl: '/partials/conference_detail.html'//,controller: 'ConferenceDetailCtrl'
                 }).
                 when('/profile', {
-                    templateUrl: '/partials/profile.html'//,controller: 'MyProfileCtrl'
+                    templateUrl: '/partials/myprofile.html'//,controller: 'MyProfileCtrl'
+                }).
+                when('/aboutme', {
+                    templateUrl: '/partials/aboutme.html'
+                }).
+                when('/contact', {
+                    templateUrl: '/partials/contact.html'//,controller: 'MyProfileCtrl'
                 }).
                 when('/search', {
                     templateUrl: '/partials/search.html'                    
